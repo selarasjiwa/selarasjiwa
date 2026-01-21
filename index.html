@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Preview — selaras sejiwa</title>
+  <meta name="description" content="SelarasJiwa — ruang konsultasi modern" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream: #FBF8F3;
+      --maroon: #6B1620;
+      --muted: #A99B8F;
+      --radius: 12px;
+      --maxwidth: 1050px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--cream);
+      color:var(--maroon);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.55;
+    }
+    .container{
+      max-width:var(--maxwidth);
+      margin:0 auto;
+      padding:28px 20px; /* lebih rapat */
+    }
+
+    /* Header - hanya branding (menu kanan telah dihapus) */
+    .site-header{
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(6px);
+      background:rgba(251,248,243,0.92);
+      border-bottom:1px solid rgba(107,22,32,0.04);
+      z-index:40;
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+    }
+    .branding{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .logo-img{
+      width:56px;height:56px;border-radius:50%;overflow:hidden;flex:0 0 56px;
+      display:block;border:4px solid rgba(107,22,32,0.06);
+      background:transparent;
+    }
+    .brand-text .site-title{
+      font-family: 'Playfair Display', serif;
+      margin:0;
+      font-size:16px;
+      letter-spacing:0.4px;
+      text-transform:capitalize;
+    }
+    .brand-text .site-sub{margin:0;font-size:12px;color:var(--muted)}
+
+    /* Hero (lebih rapat) */
+    .hero{padding:48px 0 56px 0}
+    .hero-inner{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .hero-left{flex:1 1 420px;padding-right:10px}
+    .hero-right{flex:0 0 360px;display:flex;justify-content:center}
+    .hero-heading{
+      font-family:'Playfair Display', serif;
+      font-size:36px;
+      margin:0 0 14px 0;
+      color:var(--maroon);
+      line-height:1.08;
+    }
+    .hero-desc{
+      font-size:16px;
+      color:rgba(107,22,32,0.88);
+      margin-bottom:12px;
+      white-space:pre-wrap;
+      max-width:720px;
+    }
+
+    .card-image{
+      width:320px;height:320px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+      box-shadow: 0 10px 28px rgba(107,22,32,0.05);
+      padding:18px;
+    }
+    .card-image img{max-width:100%;max-height:100%;border-radius:10px;object-fit:cover;display:block}
+
+    /* footer (rapat & teks baru) */
+    .site-footer{padding:18px 0;border-top:1px solid rgba(107,22,32,0.03);color:var(--muted)}
+    .footer-inner{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+    .footer-text{font-size:13px;color:var(--muted);margin:0}
+
+    /* icon kontakt */
+    .socials{display:flex;gap:12px;align-items:center}
+    .socials a{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:44px;height:44px;border-radius:10px;background:rgba(107,22,32,0.06);
+      color:var(--maroon);text-decoration:none;border:1px solid rgba(107,22,32,0.02);
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .socials a:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(107,22,32,0.06)}
+    .socials svg{width:20px;height:20px;display:block;fill:currentColor}
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero-right{order:2;margin-top:18px}
+      .hero-left{order:1}
+      .logo-img{width:48px;height:48px}
+      .hero-heading{font-size:26px}
+      .container{padding:20px}
+      .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="branding" href="#hero" aria-label="Selaras Jiwa">
+        <!-- gunakan PNG jika ada; fallback ke inline SVG bila PNG tidak ditemukan -->
+        <img src="assets/logo-192.png" alt="Selaras Jiwa logo" class="logo-img" id="logoPng" onerror="this.style.display='none';document.getElementById('svgFallback').style.display='block'">
+        <div id="svgFallback" style="display:none">
+          <!-- inline SVG fallback -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 800 800" aria-hidden="true" style="display:block">
+            <defs>
+              <style>.stroke{fill:none;stroke:#6B1620;stroke-width:12;stroke-linecap:round;stroke-linejoin:round}.accent{fill:#CFA76D}</style>
+            </defs>
+            <rect width="100%" height="100%" fill="none" rx="60" />
+            <g transform="translate(120,110) scale(0.08)">
+              <path class="stroke" d="M280 180
+                c-48 -56 -100 -64 -144 -20
+                c-44 44 -40 92 8 144
+                c46 50 84 72 136 72
+                c52 0 90 -22 136 -72
+                c48 -52 52 -100 8 -144
+                c-44 -44 -96 -36 -144 20z" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="brand-text">
+          <h1 class="site-title">selaras sejiwa</h1>
+          <p class="site-sub">Utuhkan Diri, Selaraskan Jiwa</p>
+        </div>
+      </a>
+
+      <!-- spacer kecil untuk keseimbangan layout -->
+      <div aria-hidden="true" style="width:20px"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h2 class="hero-heading">SelarasJiwa — ruang ngobrol yang hangat dan profesional</h2>
+          <p class="hero-desc">
+“SelarasJiwa adalah ruang konsultasi modern yang menghadirkan keseimbangan antara profesionalitas dan kehangatan. Kami percaya setiap orang berhak merasa didengar, dipahami, dan ditemani dalam perjalanan hidupnya. Di sini, kamu bisa ngobrol santai dengan bahasa yang ringan, tanpa kehilangan makna yang mendalam. Hidup sering kali penuh dengan overthinking, tekanan kerja, atau drama hubungan—dan itu wajar. SelarasJiwa hadir untuk membantu kamu menemukan perspektif baru, meredakan keresahan, sekaligus memberi insight yang relevan dengan realita sehari-hari. Dengan pendekatan yang elegan namun tetap fun, kami ingin kamu merasa lebih selaras dengan diri sendiri, lebih percaya diri, dan lebih siap menghadapi hari-hari dengan vibes yang positif.”
+          </p>
+        </div>
+
+        <div class="hero-right">
+          <div class="card-image" title="Gunakan assets/image1.png">
+            <!-- letakkan assets/image1.png di folder assets/ -->
+            <img src="assets/image1.png" alt="Dekorasi Selaras Jiwa (image1)" onerror="this.style.opacity=0.08; this.style.filter='grayscale(30%)'; this.alt='(Image1 tidak ditemukan - taruh assets/image1.png)';">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sections lain telah dihapus sesuai permintaan (hanya hero + footer) -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-text">@2026 SelarasJiwa - dibuat dengan sepenuh hati</p>
+
+        <div class="socials" aria-label="Kontak SelarasJiwa">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/selarasjiwaid/" target="_blank" rel="noopener" title="Instagram @selarasjiwaid" aria-label="Instagram @selarasjiwaid">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.5A4.5 4.5 0 1016.5 13 4.5 4.5 0 0012 8.5zm6.2-3.4a1.05 1.05 0 11-1.05-1.05A1.05 1.05 0 0118.2 5.1z" />
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:psychology@selarasjiwa.my.id" title="Email psychology@selarasjiwa.my.id" aria-label="Email psychology@selarasjiwa.my.id">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 6a2 2 0 012-2h14a2 2 0 012 2v.2l-9 5.4-9-5.4V6zm0 2.4V18a2 2 0 002 2h14a2 2 0 002-2V8.4l-9.4 5.64a1 1 0 01-1.2 0L3 8.4z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // nothing fancy needed here
+  </script>
+</body>
+</html>
